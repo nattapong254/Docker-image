@@ -1,0 +1,17 @@
+name: Deploy Docker Image to Github
+
+on:
+  push:
+    branch:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout Code
+      uses: actions/checkout@v4
+    - name: build image
+      run: 
+    - name: push image
+      run:
