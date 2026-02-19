@@ -25,6 +25,6 @@ jobs:
     - name: build image
       run: docker build -t mynginx .
     - name: tag image
-      run: docker tag mynginx:latest ghcr.io/nattapong254/mynginx:v1
+      run: docker tag mynginx:latest ghcr.io/nattapong254/Docker-image/mynginx:v1
     - name: deploy
-      run: docker push ghcr.io/nattapong254/mynginx:v1
+      run: docker push ghcr.io/nattapong254/Docker-image/mynginx:v1
