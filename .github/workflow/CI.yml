@@ -2,7 +2,7 @@ name: Deploy Docker Image to Github
 
 on:
   push:
-    branch:
+    branches:
       - main
 
 jobs:
@@ -12,10 +12,16 @@ jobs:
     permissions:
       contents: read
       packages: write
-      
+
     steps:
     - name: checkout Code
       uses: actions/checkout@v4
+    - name: login ghcr
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: build image
       run: docker build -t mynginx .
     - name: tag image
